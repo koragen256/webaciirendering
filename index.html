@@ -5,7 +5,7 @@
 
 <body style="background-color: black;">
     <pre id="screenElm" class="aa"
-        style="color: white;background-color:#000; color:#ccc; font-size: 10pt;">等幅フォントで表示されます</pre>
+        style="color: rgb(255, 0, 0);background-color:#000; color:rgb(255, 0, 0); font-size: 10pt;"></pre>
 </body>
 
 <script>
@@ -31,6 +31,15 @@
             far += event.wheelDelta / 1200;
         }
 
+        body = screenElm;
+        x = 0;
+        id = setInterval(() => {
+            x += 5;
+            r = 128 + 127 * Math.cos(x / 180 * Math.PI);
+            g = 128 + 127 * Math.cos((x + 120) / 180 * Math.PI);
+            b = 128 + 127 * Math.cos((x - 120) / 180 * Math.PI);
+            body.setAttribute("style", `color: rgb(${r}, ${g}, ${b});`);
+        }, 100);
     }
 
     let Screen = screenElm;
@@ -64,7 +73,7 @@
     var offsetW = 90;
     var offsetH = 20;
 
-    var R2 =2;
+    var R2 = 2;
 
     var texts = ".,-~:;=!*cuokYF";
 
